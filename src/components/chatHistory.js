@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 
 import PubSub from 'pubsub-js';
@@ -39,9 +39,9 @@ class ChatHistory extends Component {
 
 
     render() {
-        return <Fragment>
+        return <div className="chat-box">
             {this.state.messages.map(msg => <p key={msg.mId}>{msg.sender}: {msg.content}</p>)}
-        </Fragment>
+        </div>
 
     }
 }

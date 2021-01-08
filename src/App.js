@@ -7,12 +7,12 @@ import ChatHistory from './components/chatHistory';
 class App extends React.Component {
   render() {
     return (
-      <Fragment>
-        <h1>Chat Room</h1>
+      <div className="container">
+        <h1 className="header">Chat Room</h1>
         <ChatHistory />
         <Person username={'Tom'} />
         <Person username={'John'} />
-      </Fragment>
+      </div>
 
     );
   }

@@ -18,11 +18,11 @@ class Person extends React.Component {
 
     render() {
         return (
-            <Fragment>
-                <h4>I'm {this.props.username}</h4>
+            <div className="person-box">
+                <h4 className="person-header">I'm {this.props.username}</h4>
                 <input ref={e => this.input1 = e} type="text" onBlur={this.sendMessage} placeholder="What do you want to say?" />
 
-            </Fragment>
+            </div>
         );
     }
 
