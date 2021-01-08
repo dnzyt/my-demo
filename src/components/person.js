@@ -6,21 +6,32 @@ import { nanoid } from 'nanoid';
 class Person extends React.Component {
 
 
-    sendMessage = (event) => {
-
+    sendMessage = (msg) => {
         PubSub.publish('User Talked', {
             mId: nanoid(),
-            content: event.target.value,
+            content: msg,
             sender: this.props.username
         });
         this.input1.value = '';
+    }
+
+    onBlur = (event) => {
+        if (event.target.value) {
+            this.sendMessage(event.target.value);
+        }
+    }
+
+    keyPressed = (event) => {
+        if(event.keyCode == 13 && event.target.value){
+            this.sendMessage(event.target.value);
+         }
     }
 
     render() {
         return (
             <div className="person-box">
                 <h4 className="person-header">I'm {this.props.username}</h4>
-                <input ref={e => this.input1 = e} type="text" onBlur={this.sendMessage} placeholder="What do you want to say?" />
+                <input ref={e => this.input1 = e} type="text" onKeyDown={this.keyPressed} onBlur={this.onBlur} placeholder="What do you want to say?" />
 
             </div>
         );
