@@ -31,7 +31,11 @@ class Person extends React.Component {
         return (
             <div className="person-box">
                 <h4 className="person-header">I'm {this.props.username}</h4>
-                <input ref={e => this.input1 = e} type="text" onKeyDown={this.keyPressed} onBlur={this.onBlur} placeholder="What do you want to say?" />
+                <input ref={e => this.input1 = e}
+                        type="text"
+                        onKeyDown={this.keyPressed}
+                        onBlur={this.onBlur}
+                        placeholder="Say something..." />
 
             </div>
         );
